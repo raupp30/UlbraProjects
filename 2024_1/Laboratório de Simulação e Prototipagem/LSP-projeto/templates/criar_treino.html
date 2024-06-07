@@ -4,36 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>criar treino</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <title>Dashboard</title>
 </head>
 
-<style>
-  
-</style>
 <header>
     <div class="navbar">
         <ul>
-          
-            <li><a href="#about">Treino</a></li>
-            <li><a href="#services">Evolução</a></li>
-            <li><a href="#contact">Desafios</a></li>
-            <li><a href="#contact">Perfil</a></li>
+            <li><a href="{{ url_for('criar_treino') }}">Treino</a></li>
+            <li><a href="{{ url_for('evolucao') }}">Evolução</a></li>
+            <li><a href="{{ url_for('desafios') }}">Desafios</a></li>
+            <li><a href="{{ url_for('profile') }}">Perfil</a></li>
         </ul>
     </div>
 </header>
-<h6></h6>
 <body>
     <div class="container-criar-treino">
         <h3>Qual grupo muscular você deseja criar treino? </h3>
         <details>
             <summary>Peito</summary>
-            <p>Conteúdo 1</p>
+            <li><a href="{{ url_for('supino_reto') }}">Supino Reto</a></li>
+            <li><a href="{{ url_for('supino_inclinado') }}">Supino Inclinado</a></li>
+            <li><a href="{{ url_for('voador_frontal') }}">Voador Frontal</a></li>
+            <li><a href="{{ url_for('crucifixo_reto') }}">Crucifixo Reto</a></li>
+            <li><a href="{{ url_for('crucifixo_inclinado') }}">Crucifixo Inclinado</a></li>
         </details>
         <details>
             <summary>Costas</summary>
-            <p>Conteúdo 2</p>
+            <li><a href="{{ url_for('barra_fixa') }}">Barra Fixa</a></li>
+            <li><a href="{{ url_for('pullover_polia') }}">Pullover Polia</a></li>
+            <li><a href="{{ url_for('puxada_frontal') }}">Puxada Frontal</a></li>
+            <li><a href="{{ url_for('remada_baixa') }}">Remada Baixa</a></li>
+            <li><a href="{{ url_for('remada_curvada') }}">Remada Curvada</a></li>
         </details>
         <details>
             <summary>Biceps</summary>
@@ -59,7 +66,16 @@
 
 </body>
 <footer>
-    <a href="{{ url_for('dashboard') }}">Dash</a>
+    <div class="navbar">
+        <ul>
+            <li><a href="{{ url_for('criar_treino') }}">Treino</a></li>
+            <li><a href="{{ url_for('evolucao') }}">Evolução</a></li>
+            <li><a href="{{ url_for('desafios') }}">Desafios</a></li>
+            <li><a href="{{ url_for('profile') }}">Perfil</a></li>
+        </ul>
+        <a href="{{ url_for('logout') }}">Sair</a>
+    </div>
+    <div></div>
 </footer>
 
 </html>

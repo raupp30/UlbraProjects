@@ -12,10 +12,12 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'db_lsp'
 mysql = MySQL(app)
 
+# Rota principal
 @app.route('/')
 def index():
     return render_template('login.html')
 
+# Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -40,6 +42,7 @@ def login():
 
     return render_template('login.html')
 
+#Perfil
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'email' in session:
@@ -82,7 +85,7 @@ def profile():
     else:
         return jsonify({"message": "User not logged in"}), 401
 
-
+# Registro
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -120,6 +123,7 @@ def register():
 
     return render_template('register.html')
 
+# Dashboard
 @app.route('/dashboard')
 def dashboard():
     if 'email' not in session:
@@ -127,18 +131,71 @@ def dashboard():
     else:
         return render_template('dashboard.html')
 
+# Deslogar
 @app.route('/logout')
 def logout():
     session.pop('email', None)
     return redirect(url_for('login'))
 
+# Termos
 @app.route('/terms')
 def terms():
     return render_template('terms.html')
 
+# Rota para criar treinos
 @app.route('/criar_treino')
 def criar_treino():
     return render_template('criar_treino.html')
+
+# Treinos de peito
+@app.route('/treinos_peito/supino_reto')
+def supino_reto():
+    return render_template('treinos_peito/supino_reto.html')
+
+# Treinos de peito
+@app.route('/treinos_peito/supino_inclinado')
+def supino_inclinado():
+    return render_template('treinos_peito/supino_inclinado.html')
+
+# Treinos de peito
+@app.route('/treinos_peito/voador_frontal')
+def voador_frontal():
+    return render_template('treinos_peito/voador_frontal.html')
+
+# Treinos de peito
+@app.route('/treinos_peito/crucifixo_reto')
+def crucifixo_reto():
+    return render_template('treinos_peito/crucifixo_reto.html')
+
+# Treinos de peito
+@app.route('/treinos_peito/crucifixo_inclinado')
+def crucifixo_inclinado():
+    return render_template('treinos_peito/crucifixo_inclinado.html')
+
+# Treinos de costas
+@app.route('/treinos_costas/barra_fixa')
+def barra_fixa():
+    return render_template('treinos_costas/barra_fixa.html')
+
+# Treinos de costas
+@app.route('/treinos_costas/pullover_polia')
+def pullover_polia():
+    return render_template('treinos_costas/pullover_polia.html')
+
+# Treinos de costas
+@app.route('/treinos_costas/puxada_frontal')
+def puxada_frontal():
+    return render_template('treinos_costas/puxada_frontal.html')
+
+# Treinos de costas
+@app.route('/treinos_costas/remada_baixa')
+def remada_baixa():
+    return render_template('treinos_costas/remada_baixa.html')
+
+# Treinos de costas
+@app.route('/treinos_costas/remada_curvada')
+def remada_curvada():
+    return render_template('treinos_costas/remada_curvada.html')    
 
 @app.route('/desafios')
 def desafios():
